@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import BankTransactions from './bank/BankTransactions';
-import Invoices from './invoice/Invoice';
-import FinancialStatus from './FinancialStatus';
+import Invoices from './invoice/Invoices';
+import FinancialStatus from './finances/FinancialStatus';
 import {PageHeader, Tabs, Tab} from 'react-bootstrap';
 
 
@@ -41,6 +41,26 @@ class BusinessDashboard extends Component {
                         "referenceId": "asdf234",
                         "amount": -1705
                     }
+                ],
+                "invoiceTransactions": [
+                    {
+                        "date": "2019-01-22", // Should be PAID
+                        "referenceId": "123D4azq5",
+                        "clientName": "John Smith",
+                        "amount": -23535 // In cents (no float math)
+                    },
+                    {
+                        "date": "2019-01-22", // Should be UNPAID; matches everything but name
+                        "referenceId": "09823DFqd3",
+                        "clientName": "Jane Smith",
+                        "amount": 44222
+                    },
+                    {
+                        "date": "2019-04-03", // Should be UNPAID
+                        "referenceId": "43266634sfq",
+                        "clientName": "Jane Smith",
+                        "amount": 10252
+                    }
                 ]
             }
         })
@@ -56,7 +76,9 @@ class BusinessDashboard extends Component {
                     <FinancialStatus/>
                 </Tab>
                 <Tab eventKey={2} title="Invoices">
-                    <Invoices/>
+                    <Invoices
+                        invoiceTransactions={this.state.restData.invoiceTransactions}
+                    />
                 </Tab>
                 <Tab eventKey={3} title="Bank Transactions">
                     <BankTransactions
