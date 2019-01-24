@@ -17,29 +17,32 @@ class Invoices extends Component {
         let transactions = this.props.invoiceTransactions || [];
 
         return <Grid>
-            <Table id="invoices" striped bordered condensed hover>
-                <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Reference ID</th>
-                    <th>Client Name</th>
-                    <th>Amount in USD</th>
-                    <th>Status</th>
-                </tr>
-                </thead>
-                <tbody>
-                {transactions.map((invoice, i) =>
-                    <InvoiceRow
-                        date={invoice.date}
-                        referenceId={invoice.referenceId}
-                        clientName={invoice.clientName}
-                        amount={invoice.amount}
-                        status={invoice.status}
-                    />
-                )}
-                </tbody>
-            </Table>
-        </Grid>;
+                <h2>Invoices</h2>
+
+                <Table id="invoice-table" striped bordered condensed hover>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Reference ID</th>
+                        <th>Client Name</th>
+                        <th>Amount in USD</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {transactions.map((invoice, i) =>
+                        <InvoiceRow
+                            key={invoice + i}
+                            date={invoice.date}
+                            referenceId={invoice.referenceId}
+                            clientName={invoice.clientName}
+                            amount={invoice.amount}
+                            status={this.props.invoiceStatus(invoice)}
+                        />
+                    )}
+                    </tbody>
+                </Table>
+            </Grid>;
     }
 }
 

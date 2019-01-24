@@ -10,6 +10,7 @@ class BankTransactions extends Component {
         let transactions = this.props.bankTransactions || [];
         // TODO: sorting (default by date).
         return <Grid>
+            <h2>Bank Transactions</h2>
             <Table id="bank" striped bordered condensed hover>
                 <thead>
                 <tr>

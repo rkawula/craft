@@ -1,0 +1,11 @@
+h3#balance-danger {
+    color: darkred;
+}
+
+h3#balance-warning {
+    color: yellow;
+}
+
+h3#balance-healthy {
+    color: green;
+}

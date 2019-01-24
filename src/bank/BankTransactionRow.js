@@ -10,7 +10,7 @@ class BankTransactionRow extends Component {
             <td>{this.props.date}</td>
             <td>{this.props.referenceId}</td>
             <td>{this.props.description}</td>
-            <td class="text-right">{formatCents(this.props.amount)}</td>
+            <td className="text-right">{formatCents(this.props.amount)}</td>
         </tr>;
     }
 }

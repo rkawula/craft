@@ -9,7 +9,7 @@ class InvoiceRow extends Component {
             <td>{this.props.date}</td>
             <td>{this.props.referenceId}</td>
             <td>{this.props.clientName}</td>
-            <td class="text-right">{formatCents(this.props.amount)}</td>
+            <td className="text-right">{formatCents(this.props.amount)}</td>
             <td>{this.props.status}</td>
         </tr>;;
     }
