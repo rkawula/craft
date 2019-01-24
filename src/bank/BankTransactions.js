@@ -3,6 +3,9 @@ import BankTransactionRow from './BankTransactionRow';
 import {Grid, Table} from 'react-bootstrap';
 
 
+/**
+ *
+ */
 class BankTransactions extends Component {
 
     render() {
@@ -28,6 +31,7 @@ class BankTransactions extends Component {
                         description={transaction.description}
                         referenceId={transaction.referenceId}
                         amount={transaction.amount}
+                        className={"money-column"}
                     />
                 )}
                 </tbody>

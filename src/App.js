@@ -1,32 +1,21 @@
 import React, {Component} from 'react';
 import BusinessDashboard from './BusinessDashboard';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 /**
  * Initially perform GETs for all of the page data.
  *
- * Allow user to manipulate the page data into a new cached "delta" state field.
+ * Allow user to manipulate some key aspects of the page state through the requested widgets.
  *
- * Allow user to "save" the page data which performs a call back to the API & will update the original
- * requested data, in addition to erasing the delta field.
+ * Allow user to "save" the page data which performs a call back to the API (or should we be constantly sending deltas?)
  *
- * If an error occurs, flash message to user & keep the delta field.
+ * TODO: If an error occurs during data persistence, flash message to user & keep the deltas locally.
  */
 class App extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            invoices: {},
-            bankTransactions: {},
-            finances: {},
-            delta: {}
-        };
-    }
-
     componentWillMount() {
-        // // TODO: list & loop.
+        // // TODO: list or urls & loop through
         // axios.get(`http://localhost:5000/invoices`).then((response) => {
         //     this.setState({
         //         invoices: response.data

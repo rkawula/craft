@@ -4,9 +4,19 @@ import formatCents from '../util/Helpers.js';
 import './FinancialStatus.css';
 
 
+/**
+ * Renders overall financial status for the user.
+ * 1) The current balance is red if below 0, yellow if below configured threshold, and green if above threshold.
+ * 2) Threshold is displayed and editable with user input.
+ * 3) Total number of bank transactions from the past 30 days is displayed.
+ * 4) Total number of invoice transactions of the past 30 days is displayed.
+ */
 class FinancialStatus extends Component {
 
     currentBalanceColor(currentBalance, threshold) {
+        /**
+         * Returns CSS class for coloring the current bank balance.
+         */
         if (currentBalance < 0) {
             return "danger";
         }
@@ -45,7 +55,7 @@ class FinancialStatus extends Component {
                             <FormControl.Feedback />
                         </FormGroup>
                     </form>
-                    {/*<EditableTextField value={formatCents(this.props.threshold)} />*/}
+                    {/* TODO: Replace text field with editable text field after import errors are fixed. */}
                     {/*<EditableTextField*/}
                         {/*name='threshold'*/}
                         {/*value={formatCents(this.props.threshold)}*/}
